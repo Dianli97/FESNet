@@ -690,17 +690,12 @@ class I2CNet(nn.Module):
 
     def forward(self, x):
         return self._forward_imp(x)
-    
-    
-    # 调用示例代码
+
+# test
 batch_size = 4
 input_tensor = torch.randn(batch_size, 16, 256)
 
-# 创建模型实例
 model = I2CNet(in_planes=16)
 
-# 运行模型并检查输出形状
 output = model(input_tensor)
-print(f"Output shape: {output.shape}")  # 应该输出 (batch_size, num_outputs, window_size)
-
-# 下一步，根据两个group的数据设计block，block应该同时考虑通道内和通道间数据
+print(f"Output shape: {output.shape}")  # (batch_size, num_outputs, window_size)
